@@ -31,6 +31,14 @@ export class PlayersService {
       )
   }
 
+  getPlayers2(): Observable<IPlayer[]> {
+    return this.http.get<IPlayer[]>(this.API_URL + 'values/players')
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
   // Error handling 
   private handleError(error) {
     let errorMessage = '';

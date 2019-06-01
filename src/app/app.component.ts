@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.playersService.getValues().subscribe(r=> console.log(r))
-    this.playersService.getPlayers().subscribe(r=> {
+    this.playersService.getPlayers2().subscribe(r=> {
       this.players = r;
       console.log(this.players)
     })
