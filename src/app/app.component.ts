@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlayersService } from './services/players.service';
 import { IPlayer } from './interfaces/player.interface';
 import { PaginationInfo } from './models/paginationInfo.model';
+import { Pagination } from './models/pagination.model';
 
 @Component({
   selector: 'app-root',
@@ -9,32 +10,34 @@ import { PaginationInfo } from './models/paginationInfo.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  
+
   title = 'PlayersWebApp';
-  players : IPlayer[]
+  players: IPlayer[]
 
   private page = 1;
   public pageSize = 10;
   public keyword = "";
-  
+  public pagination = new Pagination(this.page, 0);
+
   constructor(
     private playersService: PlayersService) {
   }
 
   ngOnInit(): void {
     this.playersService.getValues().subscribe(r => console.log(r))
-    
-    let paginationInfo = {page:1, pageSize: 10, keyword:""};  
-    this.playersService.getPlayers(paginationInfo).subscribe(r=> {
+    this.search()
+  }
+
+  search() {
+    let paginationInfo = { page: this.page, pageSize: this.pageSize, keyword: this.keyword };
+    this.playersService.getPlayers(paginationInfo).subscribe(r => {
       this.players = r.players;
-      console.log(r.size)
+      this.pagination = new Pagination(this.page, r.totalPages)
     })
   }
 
-  search(){
-    let paginationInfo = {page:this.page, pageSize: this.pageSize, keyword: this.keyword};  
-    this.playersService.getPlayers(paginationInfo).subscribe(r=> {
-      this.players = r.players;
-    })
+  onPagination(page: number) {
+    this.page = page;
+    this.search();
   }
 }

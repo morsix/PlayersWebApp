@@ -1,6 +1,6 @@
 import { IPlayer } from './player.interface';
 
 export interface PlayerPaginationWrapper {
-    size: string;
+    totalPages: number;
     players: IPlayer[];
 }

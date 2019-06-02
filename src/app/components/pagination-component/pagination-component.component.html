@@ -1,0 +1,11 @@
+<div class="btn-group" role="group">
+    <button type="button" class="btn btn-outline-secondary" [disabled]="pagination.currentPage === 1" (click)="setPage(1)">First</button>
+    <button type="button" class="btn btn-outline-secondary" [disabled]="pagination.currentPage === 1" (click)="setPage(pagination.currentPage - 1)">Previous</button>
+    <div class="btn-group" role="group" *ngFor="let item of pagesArray">
+        <button  type="button" class="btn" [ngClass]="{'btn-primary': pagination.currentPage === item, 'btn-outline-secondary': pagination.currentPage !== item}" (click)="setPage(item)">
+            {{item}}
+        </button>
+    </div>
+    <button type="button" class="btn btn-outline-secondary" [disabled]="pagination.currentPage === pagination.totalPages" (click)="setPage( +pagination.currentPage + 1)">Next</button>
+    <button type="button" class="btn btn-outline-secondary" [disabled]="pagination.currentPage === pagination.totalPages" (click)="setPage(pagination.totalPages)">Last</button>
+</div>
