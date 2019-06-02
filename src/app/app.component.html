@@ -9,7 +9,6 @@
     <div class="col-3">
       <div class="form-group form-inline">
         <label for="entriesSelect">Show entries: </label>
-
         <select class="form-control ml-2" [(ngModel)]="pageSize" (ngModelChange)="search()" id="entriesSelect">
           <option [ngValue]="10">10</option>
           <option [ngValue]="25">25</option>
@@ -58,7 +57,7 @@
       </tbody>
     </table>
   </div>
-  <div class="row mt-3">
+  <div class="row mt-3 mb-3">
     <div class="col text-center">
         <app-pagination-component [paginationDetails]="pagination" (onPagination)="onPagination($event)" ></app-pagination-component>
     </div>
