@@ -8,44 +8,39 @@
 <div class="container">
   <h2>Here are some links to help you start: </h2>
   <div class="table-responsive">
-    <table class="table">
+    <table class="table table-striped text-center">
       <thead class="thead-light">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">Picture</th>
+          <th scope="col">Name</th>
+          <th scope="col">Team</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Age</th>
+          <th scope="col">Active</th>
+          <th scope="col">Goals</th>
+          <th scope="col">Appearances</th>
+          <th scope="col">Red Cards</th>
+          <th scope="col">Yellow Cards</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
+        <tr *ngFor="let item of players">
+          <td><img [src]=item.picture [alt]=item.name></td>
+          <td>{{item.name}}</td>
+          <td>{{item.team.name}}</td>
+          <td>{{item.gender}}</td>
+          <td>{{item.age}}</td>
+          <td>{{item.isActive}}</td>
+          <td>{{item.goals}}</td>
+          <td>{{item.appearances}}</td>
+          <td>{{item.redCards}}</td>
+          <td>{{item.yellowCards}}</td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
 <footer class="container">
-  <p class="float-right">
-    <a href="#">Back to top</a>
-  </p>
-  <p>&copy; 2017-2018 Company, Inc. &middot;
-    <a href="#">Privacy</a> &middot;
-    <a href="#">Terms</a>
+  <p>&copy; 2019-2020 Players WebApp by Florian Celestin Bochis
   </p>
 </footer>
