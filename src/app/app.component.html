@@ -11,16 +11,16 @@
     <table class="table table-striped text-center">
       <thead class="thead-light">
         <tr>
-          <th scope="col">Picture</th>
-          <th scope="col">Name</th>
-          <th scope="col">Team</th>
-          <th scope="col">Gender</th>
-          <th scope="col">Age</th>
-          <th scope="col">Active</th>
-          <th scope="col">Goals</th>
-          <th scope="col">Appearances</th>
-          <th scope="col">Red Cards</th>
-          <th scope="col">Yellow Cards</th>
+          <th scope="col"><i class="fa fa-file-image-o" aria-hidden="true"></i> Picture</th>
+          <th scope="col"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Name</th>
+          <th scope="col"><i class="fa fa-users" aria-hidden="true"></i> Team</th>
+          <th scope="col"><i class="fa fa-venus" aria-hidden="true"></i><i class="fa fa-mars" aria-hidden="true"></i> Gender</th>
+          <th scope="col"><i class="fa fa-calendar" aria-hidden="true"></i> Age</th>
+          <th scope="col"><i class="fa fa-child" aria-hidden="true"></i> Active</th>
+          <th scope="col"><i class="fa fa-futbol-o" aria-hidden="true"></i> Goals</th>
+          <th scope="col"><i class="fa fa-user" aria-hidden="true"></i> Appearances</th>
+          <th scope="col"><i class="fa fa-square text-danger" aria-hidden="true"></i> Red Cards</th>
+          <th scope="col"><i class="fa fa-square text-warning" aria-hidden="true"></i> Yellow Cards</th>
         </tr>
       </thead>
       <tbody>
@@ -30,7 +30,7 @@
           <td>{{item.team.name}}</td>
           <td>{{item.gender}}</td>
           <td>{{item.age}}</td>
-          <td>{{item.isActive}}</td>
+          <td><i *ngIf="item.isActive" class="fa fa-check text-success" aria-hidden="true"></i><i *ngIf="!item.isActive" class="fa fa-times text-danger" aria-hidden="true"></i></td>
           <td>{{item.goals}}</td>
           <td>{{item.appearances}}</td>
           <td>{{item.redCards}}</td>
@@ -40,7 +40,7 @@
     </table>
   </div>
 </div>
-<footer class="container">
-  <p>&copy; 2019-2020 Players WebApp by Florian Celestin Bochis
+<footer>
+  <p class="ml-5" >&copy; 2019-2020 Players WebApp by Florian Celestin Bochis
   </p>
 </footer>
