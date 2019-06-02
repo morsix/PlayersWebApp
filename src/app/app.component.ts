@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   players : IPlayer[]
 
   private page = 1;
-  private pageSize = 10;
+  public pageSize = 10;
   public keyword = "";
   
   constructor(
