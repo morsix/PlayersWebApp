@@ -4,7 +4,8 @@
     (keyup.enter)="search()">
   <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="search()">Search</button>
 </nav>
-<div class="ml-3 mr-3">
+<div class="text-center" *ngIf="players.length === 0"><h1>No data found</h1></div>
+<div *ngIf="players.length !== 0" class="ml-3 mr-3">
   <div class="row">
     <div class="col-3">
       <div class="form-group form-inline">

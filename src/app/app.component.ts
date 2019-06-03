@@ -12,7 +12,7 @@ import { Pagination } from './models/pagination.model';
 export class AppComponent implements OnInit {
 
   title = 'PlayersWebApp';
-  players: IPlayer[]
+  players: IPlayer[] = [];
 
   private page = 1;
   public pageSize = 10;
