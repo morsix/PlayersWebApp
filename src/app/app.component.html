@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-between">
   <a href="#" class="navbar-brand">Players</a>
   <input class="form-control mr-sm-2" type="search" placeholder="Search for player or team" aria-label="Search" [(ngModel)]="keyword" (keyup.enter)="search()">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="search()">Search</button>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="searchKeyword()">Search</button>
 </nav>
 <div class="text-center" *ngIf="players.length === 0">
   <h1>No data found</h1>
