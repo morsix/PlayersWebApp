@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
-import { IPlayer } from '../interfaces/player.interface';
+import { catchError } from 'rxjs/operators';
 import { PaginationInfo } from '../models/paginationInfo.model';
 import { PlayerPaginationWrapper } from '../interfaces/playerPaginationWrapper.interface';
 
@@ -21,14 +20,6 @@ export class PlayersService {
     console.log(paginationInfo);
     return this.http.post<PlayerPaginationWrapper>(this.API_URL + 'players', paginationInfo)
       .pipe(
-        catchError(this.handleError)
-      )
-  }
-
-  getValues(): Observable<any> {
-    return this.http.get<any>(this.API_URL + 'values')
-      .pipe(
-        retry(1),
         catchError(this.handleError)
       )
   }

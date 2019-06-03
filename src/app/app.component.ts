@@ -18,18 +18,20 @@ export class AppComponent implements OnInit {
   public pageSize = 10;
   public keyword = "";
   public pagination = new Pagination(this.page, 0);
+  public sortby ="";
+  public order = true;
 
   constructor(
     private playersService: PlayersService) {
   }
 
   ngOnInit(): void {
-    this.playersService.getValues().subscribe(r => console.log(r))
     this.search()
   }
 
   search() {
-    let paginationInfo = { page: this.page, pageSize: this.pageSize, keyword: this.keyword };
+    this.order = !this.order;
+    let paginationInfo = new PaginationInfo(this.page, this.pageSize, this.keyword, this.sortby, this.order);
     this.playersService.getPlayers(paginationInfo).subscribe(r => {
       this.players = r.players;
       this.pagination = new Pagination(this.page, r.totalPages)
@@ -38,6 +40,12 @@ export class AppComponent implements OnInit {
 
   onPagination(page: number) {
     this.page = page;
+    this.search();
+  }
+
+  sort(sortBy: string) {
+    this.sortby = sortBy;
+    this.page = 1;
     this.search();
   }
 }

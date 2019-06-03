@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark justify-content-between">
   <a href="#" class="navbar-brand">Players</a>
-  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="keyword"
+  <input class="form-control mr-sm-2" type="search" placeholder="Search for player or team" aria-label="Search" [(ngModel)]="keyword"
     (keyup.enter)="search()">
   <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="search()">Search</button>
 </nav>
@@ -18,7 +18,8 @@
       </div>
     </div>
     <div class="col-9 text-right">
-    <app-pagination-component [paginationDetails]="pagination" (onPagination)="onPagination($event)" ></app-pagination-component>
+      <app-pagination-component [paginationDetails]="pagination" (onPagination)="onPagination($event)">
+      </app-pagination-component>
     </div>
   </div>
   <div class="table-responsive">
@@ -27,16 +28,28 @@
         <tr>
           <th scope="col"> # </th>
           <th scope="col"><i class="fa fa-file-image-o" aria-hidden="true"></i> Picture</th>
-          <th scope="col"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Name </th>
-          <th scope="col"><i class="fa fa-users" aria-hidden="true"></i> Team</th>
+          <th scope="col"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Name <button
+              (click)="sort('name')" class="btn btn-outline-secondary btn-sm pull-right"><i class="fa fa-sort"
+                aria-hidden="true"></i></button></th>
+          <th scope="col"><i class="fa fa-users" aria-hidden="true"></i> Team <button (click)="sort('team')"
+              class="btn btn-outline-secondary btn-sm pull-right"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
           <th scope="col"><i class="fa fa-venus" aria-hidden="true"></i><i class="fa fa-mars" aria-hidden="true"></i>
-            Gender</th>
-          <th scope="col"><i class="fa fa-calendar" aria-hidden="true"></i> Age</th>
-          <th scope="col"><i class="fa fa-child" aria-hidden="true"></i> Active</th>
-          <th scope="col"><i class="fa fa-futbol-o" aria-hidden="true"></i> Goals</th>
-          <th scope="col"><i class="fa fa-user" aria-hidden="true"></i> Appearances</th>
-          <th scope="col"><i class="fa fa-square text-danger" aria-hidden="true"></i> Red Cards</th>
-          <th scope="col"><i class="fa fa-square text-warning" aria-hidden="true"></i> Yellow Cards</th>
+            Gender <button (click)="sort('gender')" class="btn btn-outline-secondary btn-sm pull-right"><i class="fa fa-sort"
+                aria-hidden="true"></i></button></th>
+          <th scope="col"><i class="fa fa-calendar" aria-hidden="true"></i> Age <button (click)="sort('age')"
+              class="btn btn-outline-secondary btn-sm pull-right"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+          <th scope="col"><i class="fa fa-child" aria-hidden="true"></i> Active <button (click)="sort('active')"
+              class="btn btn-outline-secondary btn-sm pull-right"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+          <th scope="col"><i class="fa fa-futbol-o" aria-hidden="true"></i> Goals <button (click)="sort('goals')"
+              class="btn btn-outline-secondary btn-sm pull-right"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+          <th scope="col"><i class="fa fa-user" aria-hidden="true"></i> Appearances <button (click)="sort('appearances')"
+              class="btn btn-outline-secondary btn-sm pull-right"><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+          <th scope="col"><i class="fa fa-square text-danger" aria-hidden="true"></i> Red Cards <button
+              (click)="sort('redCards')" class="btn btn-outline-secondary btn-sm pull-right"><i class="fa fa-sort"
+                aria-hidden="true"></i></button></th>
+          <th scope="col"><i class="fa fa-square text-warning" aria-hidden="true"></i> Yellow Cards <button
+              (click)="sort('yellowCards')" class="btn btn-outline-secondary btn-sm pull-right"><i class="fa fa-sort"
+                aria-hidden="true"></i></button></th>
         </tr>
       </thead>
       <tbody>
@@ -59,7 +72,8 @@
   </div>
   <div class="row mt-3 mb-3">
     <div class="col text-center">
-        <app-pagination-component [paginationDetails]="pagination" (onPagination)="onPagination($event)" ></app-pagination-component>
+      <app-pagination-component [paginationDetails]="pagination" (onPagination)="onPagination($event)">
+      </app-pagination-component>
     </div>
   </div>
 </div>
