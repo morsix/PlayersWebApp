@@ -17,7 +17,6 @@ export class PlayersService {
   }
 
   getPlayers(paginationInfo: PaginationInfo): Observable<PlayerPaginationWrapper> {
-    console.log(paginationInfo);
     return this.http.post<PlayerPaginationWrapper>(this.API_URL + 'players', paginationInfo)
       .pipe(
         catchError(this.handleError)
