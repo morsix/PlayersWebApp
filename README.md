@@ -10,6 +10,11 @@ This is an Angular 7 projects which consumes a .Net Core WebApi [PlayersAPI](htt
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
+Third-party libraries:
+
+- Bootstrap 4
+- Fontawesome 4
+
 
 # How to run locally
 - install npm
@@ -18,18 +23,24 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - run 'npm install'
 - run 'ng serve'
 
-#Important
-The default port for Angular is :4200 and the dafult port for the .NET CORE API is :44316. If you're using diffrent ports make sure to configure both the applications liek this:
+# Important
+The default port for Angular is :4200 and the dafult port for the .NET CORE API is :44316. If you're using diffrent ports make sure to configure both the applications like this:
 
 - change the API_URL in Angular ('players.service.ts') to match the port of the API
--- private readonly API_URL = 'https://localhost:44316/api/'; -- 
 
-- change the link in Startup.cs
+```
+private readonly API_URL = 'https://localhost:44316/api/';
 
-```builder => builder.WithOrigins("http://localhost:4200")
+```
+
+- change the link in Startup.cs to match the port angular is running on
+
+```
+builder => builder.WithOrigins("http://localhost:4200")
                                 .AllowAnyHeader()
-                                .AllowAnyMethod());```
-to match the port angular is running on
+                                .AllowAnyMethod());
+```
+
 
 
 
