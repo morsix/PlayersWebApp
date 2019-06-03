@@ -53,4 +53,9 @@ export class AppComponent implements OnInit {
     this.page = 1;
     this.search();
   }
+
+  changeEntries(){
+    this.page = 1;
+    this.search();
+  }
 }
